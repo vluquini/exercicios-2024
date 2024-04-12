@@ -2,6 +2,7 @@
 
 namespace Chuva\Php\WebScrapping;
 
+use Chuva\Php\WebScrapping\CreateXlsx;
 /**
  * Runner for the Webscrapping exercice.
  */
@@ -12,12 +13,10 @@ class Main {
    */
   public static function run(): void {
     $dom = new \DOMDocument('1.0', 'utf-8');
-    $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
+    $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html', LIBXML_NOERROR);
 
     $data = (new Scrapper())->scrap($dom);
-
-    // Write your logic to save the output file bellow.
-    print_r($data);
+    $xlsx = (new CreateXlsx())->create($data);
   }
 
 }
