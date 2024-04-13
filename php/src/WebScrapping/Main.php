@@ -16,7 +16,7 @@ class Main {
     $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html', LIBXML_NOERROR);
 
     $data = (new Scrapper())->scrap($dom);
-    $xlsx = (new CreateXlsx())->create($data);
+    (new CreateXlsx())->create($data);
   }
 
 }
