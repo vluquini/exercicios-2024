@@ -2,7 +2,6 @@
 
 namespace Chuva\Php\WebScrapping;
 
-use Chuva\Php\WebScrapping\CreateXlsx;
 /**
  * Runner for the Webscrapping exercice.
  */
