@@ -2,11 +2,8 @@
 
 namespace Chuva\Php\WebScrapping;
 
-use Box\Spout\Common\Exception\IOException;
-use Box\Spout\Writer\Exception\WriterNotOpenedException;
 use Chuva\Php\WebScrapping\Entity\Paper;
 use Chuva\Php\WebScrapping\Entity\Person;
-use InvalidArgumentException;
 
 /**
  * Does the scrapping of a webpage.
@@ -14,9 +11,7 @@ use InvalidArgumentException;
 class Scrapper {
 
   /**
-   * @throws WriterNotOpenedException
-   * @throws IOException
-   * @throws InvalidArgumentException
+   * Function that performs web scrapping.
    */
   public function scrap(\DOMDocument $dom): array {
     $papers = [];
@@ -75,4 +70,5 @@ class Scrapper {
     }
     return $papers;
   }
+
 }

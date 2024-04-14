@@ -53,7 +53,7 @@ class CreateXlsx {
       $row = [
         $paper->id,
         $paper->title,
-        $paper->type
+        $paper->type,
       ];
       $authorsName = [];
       $authorsInstitution = [];
@@ -62,12 +62,12 @@ class CreateXlsx {
         $authorsInstitution[] = $author->institution;
       }
       // Preenche com vazio para autores e instituições que não existem.
-       while (count($authorsName) < $maxAuthors) {
-         $authorsName[] = '';
-         $authorsInstitution[] = '';
-       }
-       $row = array_merge($row, $authorsName, $authorsInstitution);
-       $rows[] = $row;
+      while (count($authorsName) < $maxAuthors) {
+        $authorsName[] = '';
+        $authorsInstitution[] = '';
+      }
+      $row = array_merge($row, $authorsName, $authorsInstitution);
+      $rows[] = $row;
     }
     $writer->addRow(WriterEntityFactory::createRowFromArray($headers, $headerStyle));
     foreach ($rows as $row) {
@@ -75,4 +75,5 @@ class CreateXlsx {
     }
     $writer->close();
   }
+
 }
